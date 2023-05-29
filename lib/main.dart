@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutterunittesting/user_model.dart';
 import 'package:flutterunittesting/user_repository.dart';
+import 'package:http/http.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Future<UserModel> getuser = UserRepository().getUser();
+  Future<UserModel> getuser = UserRepository(Client()).getUser();
 
   @override
   Widget build(BuildContext context) {
